@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACA-107: NEUTRON</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+    p {
+      font-size: 1em;
+      margin-bottom: 2em;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      width: 300px;
+      margin-bottom: 10px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>ACA-107: NEUTRON</h1>
+  <h2>SCiP.network</h2>
+  <p>Developed by the Department of Computing and Mechanics</p>
+  <p>Created April 14, 2025</p>
+  <div>
+    <label for="credentials">---> [Enter Credentials]: </label><br />
+    <input type="text" id="credentials" placeholder="Enter Access Code" />
+    <br />
+    <button onclick="verifyLogin()">Submit</button>
+  </div>
 
+  <script>
+    function verifyLogin() {
+      const input = document.getElementById('credentials').value;
+      if (input === 'LOGINACA107') {
+        window.location.href = 'aca107-database.html';
+      } else {
+        alert('ACCESS DENIED. Invalid credentials.');
+      }
+    }
+  </script>
+</body>
+</html>
