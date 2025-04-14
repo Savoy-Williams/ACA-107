@@ -96,3 +96,129 @@
   </script>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACA-107 Database</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    img {
+      max-width: 200px;
+      margin-bottom: 30px;
+    }
+    h1, h2 {
+      margin: 10px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      width: 300px;
+      margin-top: 20px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: white;
+      color: black;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .entry-form, .database-entry {
+      margin-top: 20px;
+    }
+    .database-entry {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid white;
+      background-color: #222;
+      display: inline-block;
+      width: 60%;
+      margin: 0 auto;
+    }
+    .entry {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ACA-107</h1>
+  <h2>AREA DATABASE</h2>
+
+  <label for="login">---> [Enter Access Code]: </label>
+  <input type="text" id="login" placeholder="Enter Access Code" />
+  <button onclick="checkAccessCode()">Submit</button>
+
+  <div class="entry-form" style="display:none;">
+    <h3>Add New Entry</h3>
+    <label for="name">Name: </label>
+    <input type="text" id="name" placeholder="Name" /><br /><br />
+    <label for="department">Department: </label>
+    <input type="text" id="department" placeholder="Department" /><br /><br />
+    <label for="access-level">Access Level: </label>
+    <input type="text" id="access-level" placeholder="Access Level" /><br /><br />
+    <button onclick="addEntry()">Add Entry</button>
+  </div>
+
+  <div id="database" class="database-entry" style="display:none;">
+    <h3>Database Entries:</h3>
+    <div id="entries-list"></div>
+  </div>
+
+  <script>
+    let currentCode = ''; // To store the entered code
+
+    function checkAccessCode() {
+      const enteredCode = document.getElementById('login').value;
+      if (enteredCode === 'ACASTAFF') {
+        currentCode = 'ACASTAFF'; // Set current code for checking access
+        document.querySelector('.entry-form').style.display = 'block'; // Show entry form
+        document.getElementById('login').disabled = true; // Disable login input
+        document.querySelector('button').disabled = true; // Disable the submit button
+      } else {
+        alert('ACCESS DENIED. Invalid code.');
+      }
+    }
+
+    function addEntry() {
+      const name = document.getElementById('name').value;
+      const department = document.getElementById('department').value;
+      const accessLevel = document.getElementById('access-level').value;
+
+      if (name && department && accessLevel) {
+        // Create a new entry element
+        const entry = document.createElement('div');
+        entry.classList.add('entry');
+        entry.innerHTML = `<strong>Name:</strong> ${name} - <strong>Department:</strong> ${department} - <strong>Access Level:</strong> ${accessLevel}`;
+
+        // Append to the database list
+        const entriesList = document.getElementById('entries-list');
+        entriesList.appendChild(entry);
+
+        // Show the database container
+        document.getElementById('database').style.display = 'block';
+
+        // Clear form inputs
+        document.getElementById('name').value = '';
+        document.getElementById('department').value = '';
+        document.getElementById('access-level').value = '';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+  </script>
+
+</body>
+</html>
