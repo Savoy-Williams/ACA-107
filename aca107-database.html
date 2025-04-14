@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACA-107 Database</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    img {
+      max-width: 200px;
+      margin-bottom: 30px;
+    }
+    h1, h2 {
+      margin: 10px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      width: 300px;
+      margin-top: 20px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: white;
+      color: black;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .scp-list {
+      text-align: left;
+      max-width: 600px;
+      margin: 50px auto 0 auto;
+      display: none;
+    }
+    .scp-list h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/SCP_Foundation_%28emblem%29.svg" alt="SCP Foundation Logo">
+  <h1>ACA-107</h1>
+  <h2>AREA DATABASE</h2>
 
+  <label for="access">---> LOGIN</label><br>
+  <input type="text" id="access" placeholder="Enter Access Code">
+  <br>
+  <button onclick="checkCode()">Submit</button>
+
+  <div class="scp-list" id="scpInfo">
+    <h3>Contained SCPs at ACA-107</h3>
+    <p>
+      1: SCP-012<br>
+      2: SCP-017<br>
+      3: SCP-035<br>
+      4: SCP-066<br>
+      5: SCP-079<br>
+      6: SCP-082<br>
+      7: SCP-093<br>
+      8: SCP-096<br>
+      9: SCP-106<br>
+      10: SCP-131<br>
+      11: SCP-173<br>
+      12: SCP-2950<br>
+      13: SCP-316<br>
+      14: SCP-323<br>
+      15: SCP-352<br>
+      16: SCP-457<br>
+      17: SCP-4666<br>
+      18: SCP-914<br>
+      19: SCP-939<br>
+      20: SCP-999
+    </p>
+  </div>
+
+  <script>
+    function checkCode() {
+      const code = document.getElementById('access').value;
+      const scpSection = document.getElementById('scpInfo');
+
+      if (code === 'ACAINFO') {
+        scpSection.style.display = 'block';
+      } else {
+        alert('ACCESS DENIED. Invalid access code.');
+      }
+    }
+  </script>
+</body>
+</html>
